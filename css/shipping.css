@@ -1,0 +1,468 @@
+/* 装运台页专属样式（基础样式复用 css/styles.css） */
+
+.toolbar-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.shipping-layout {
+  grid-template-columns: 300px minmax(460px, 1fr) 300px;
+}
+
+.mini {
+  border-radius: 6px;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+button.mini.primary {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+}
+
+button.mini.inspect,
+.mini.inspect {
+  border-color: rgba(181, 77, 72, 0.45);
+  background: rgba(181, 77, 72, 0.1);
+  color: var(--red);
+}
+
+button.mini.danger {
+  border-color: rgba(181, 77, 72, 0.5);
+  color: var(--red);
+}
+
+button.mini.danger.on {
+  background: var(--red);
+  border-color: var(--red);
+  color: #fff;
+}
+
+button.primary:disabled {
+  background: #b7b2a4;
+  border-color: #b7b2a4;
+  color: #fff;
+  cursor: not-allowed;
+}
+
+/* ---------- 片段池 ---------- */
+
+.pool-filters {
+  margin-bottom: 10px;
+}
+
+.pool-list {
+  display: grid;
+  gap: 9px;
+  max-height: 70vh;
+  overflow: auto;
+}
+
+.pool-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fffdf7;
+  padding: 10px;
+  display: grid;
+  gap: 7px;
+}
+
+.pool-card.is-inspect {
+  border-color: rgba(181, 77, 72, 0.55);
+  background: rgba(181, 77, 72, 0.06);
+}
+
+.pool-card-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.pool-card-head span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.pool-card .tag-row {
+  margin-bottom: 0;
+}
+
+.inspect-tag {
+  background: rgba(181, 77, 72, 0.15) !important;
+  color: var(--red) !important;
+}
+
+.pool-add {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 6px;
+}
+
+.pool-add select {
+  padding: 6px 8px;
+  font-size: 13px;
+}
+
+.pool-add .mini {
+  white-space: nowrap;
+}
+
+.pool-loc {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.pool-loc.muted {
+  font-weight: 600;
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* ---------- 运输箱 ---------- */
+
+.box-list {
+  display: grid;
+  gap: 14px;
+}
+
+.box-card {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fffdf7;
+  padding: 13px;
+  scroll-margin-top: 12px;
+}
+
+.box-card.open {
+  border-left: 4px solid var(--amber);
+}
+
+.box-card.sealed {
+  border-left: 4px solid var(--green);
+  background: rgba(77, 118, 86, 0.05);
+}
+
+.box-card header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.box-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.box-title h3 {
+  margin: 0;
+  font-size: 17px;
+}
+
+.status-badge {
+  border-radius: 999px;
+  padding: 3px 10px;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.status-badge.open {
+  background: rgba(212, 155, 53, 0.18);
+  color: #9a6b16;
+}
+
+.status-badge.sealed {
+  background: rgba(77, 118, 86, 0.18);
+  color: var(--green);
+}
+
+.box-head-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.box-settings {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.box-settings input {
+  padding: 7px 9px;
+}
+
+.box-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+}
+
+.box-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: #fff;
+  padding: 7px 10px;
+}
+
+.box-item.has-issue {
+  border-color: rgba(181, 77, 72, 0.45);
+  background: rgba(181, 77, 72, 0.05);
+}
+
+.box-item.sealed {
+  background: rgba(255, 253, 247, 0.85);
+}
+
+.item-order {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 11px;
+  font-weight: 900;
+  flex: none;
+}
+
+.box-item strong {
+  flex: none;
+}
+
+.item-meta {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.box-item .mini {
+  margin-left: auto;
+}
+
+.receipt-actions {
+  margin-left: auto;
+  display: flex;
+  gap: 6px;
+}
+
+.box-notices {
+  margin: 0 0 9px;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 4px;
+}
+
+.notice-warn {
+  border-radius: 6px;
+  background: rgba(212, 155, 53, 0.14);
+  color: #9a6b16;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 9px;
+}
+
+.notice-block {
+  border-radius: 6px;
+  background: rgba(181, 77, 72, 0.12);
+  color: var(--red);
+  font-size: 12px;
+  font-weight: 800;
+  padding: 6px 9px;
+}
+
+.box-footer {
+  margin-top: 10px;
+}
+
+.box-footer .primary {
+  width: 100%;
+}
+
+.sealed-at {
+  margin: 10px 0 0;
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+/* ---------- 收货核验记录 ---------- */
+
+.findings-log {
+  margin-top: 10px;
+  border-top: 1px dashed var(--line);
+  padding-top: 8px;
+}
+
+.findings-log h4 {
+  margin: 0 0 6px;
+  font-size: 13px;
+}
+
+.findings-log ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 4px;
+}
+
+.findings-log li {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  flex-wrap: wrap;
+  border-radius: 6px;
+  padding: 6px 9px;
+  font-size: 12px;
+}
+
+.findings-log li.active {
+  background: rgba(181, 77, 72, 0.1);
+}
+
+.findings-log li.resolved {
+  background: rgba(77, 118, 86, 0.1);
+}
+
+.findings-log span {
+  color: var(--muted);
+}
+
+.findings-log em {
+  font-style: normal;
+  font-weight: 800;
+  color: var(--red);
+}
+
+.findings-log li.resolved em {
+  color: var(--green);
+}
+
+/* ---------- 右侧核对栏 ---------- */
+
+.rail-block {
+  margin-bottom: 14px;
+}
+
+.rail-block h3 {
+  margin: 0 0 8px;
+  font-size: 14px;
+}
+
+.rail-item {
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  padding: 8px 10px;
+  margin-bottom: 7px;
+  display: grid;
+  gap: 5px;
+}
+
+.rail-item strong {
+  font-size: 13px;
+}
+
+.rail-item ul {
+  margin: 0;
+  padding-left: 16px;
+  color: var(--red);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.rail-item.block {
+  border-color: rgba(181, 77, 72, 0.4);
+  background: rgba(181, 77, 72, 0.06);
+}
+
+.rail-item.inspect {
+  border-color: rgba(181, 77, 72, 0.4);
+  background: rgba(181, 77, 72, 0.06);
+}
+
+.rail-item span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.rail-item .mini {
+  justify-self: start;
+}
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chip {
+  border-radius: 999px;
+  background: rgba(52, 125, 137, 0.12);
+  color: var(--cyan);
+  font-size: 12px;
+  font-weight: 800;
+  padding: 4px 9px;
+}
+
+.chip.warn {
+  background: rgba(181, 77, 72, 0.14);
+  color: var(--red);
+}
+
+.rule-note {
+  margin-top: 6px;
+  border-top: 1px dashed var(--line);
+  padding-top: 10px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+@media (max-width: 1120px) {
+  .shipping-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .pool-list {
+    max-height: none;
+  }
+}
+
+@media (max-width: 660px) {
+  .box-settings {
+    grid-template-columns: 1fr;
+  }
+
+  .box-item {
+    flex-wrap: wrap;
+  }
+
+  .receipt-actions {
+    margin-left: 0;
+  }
+}

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>胶片分镜条核对台</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
     <main class="shell">
@@ -13,6 +13,10 @@
           <p class="eyebrow">纸质放映胶片整理</p>
           <h1>胶片分镜条核对台</h1>
         </div>
+        <nav class="top-nav">
+          <a class="active" href="index.html">核对台</a>
+          <a href="shipping.html">装运台</a>
+        </nav>
         <div class="hero-stats">
           <div>
             <span>总时长</span>
@@ -25,6 +29,10 @@
           <div>
             <span>片段数</span>
             <strong id="segmentCount">0</strong>
+          </div>
+          <div>
+            <span>收货待检</span>
+            <strong id="inspectionCount">0</strong>
           </div>
         </div>
       </header>
@@ -98,7 +106,7 @@
 
         <section class="panel list-panel">
           <div class="panel-head">
-            <h2>放映顺序</h2>
+            <h2>放映顺序（也是装箱顺序）</h2>
             <span>拖拽片段调整顺序</span>
           </div>
           <div id="segmentList" class="segment-list"></div>
@@ -111,6 +119,8 @@
       </section>
     </main>
 
-    <script src="app.js"></script>
+    <script src="js/util.js"></script>
+    <script src="js/store.js"></script>
+    <script src="js/desk.js"></script>
   </body>
 </html>
