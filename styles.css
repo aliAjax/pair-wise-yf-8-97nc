@@ -51,6 +51,43 @@ button.primary {
   color: #fff;
 }
 
+button.mini {
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+button:disabled,
+input:disabled,
+select:disabled,
+textarea:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.top-nav {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.top-nav a {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(248, 247, 242, 0.92);
+  color: var(--muted);
+  padding: 7px 18px;
+  font-size: 13px;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.top-nav a.active {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+}
+
 input,
 select,
 textarea {

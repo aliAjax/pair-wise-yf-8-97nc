@@ -1,0 +1,349 @@
+/* 装运台页面专属样式，基础组件沿用 styles.css */
+
+.ship-layout {
+  grid-template-columns: 290px minmax(380px, 1fr) 340px;
+  align-items: start;
+}
+
+.side-stack {
+  display: grid;
+  gap: 16px;
+}
+
+.side-stack .panel {
+  box-shadow: var(--shadow);
+}
+
+.global-hint {
+  display: none;
+  margin: 0 0 14px;
+  border: 1px solid rgba(181, 77, 72, 0.35);
+  border-radius: 8px;
+  background: rgba(181, 77, 72, 0.08);
+  color: var(--red);
+  padding: 10px 13px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.global-hint.show {
+  display: block;
+}
+
+/* ---------- 运输箱卡片 ---------- */
+
+.box-list {
+  display: grid;
+  gap: 10px;
+}
+
+.box-card {
+  display: grid;
+  gap: 8px;
+  width: 100%;
+  text-align: left;
+  padding: 11px;
+  background: #fffdf7;
+}
+
+.box-card.selected {
+  border-color: var(--cyan);
+  box-shadow: 0 0 0 2px rgba(52, 125, 137, 0.22);
+}
+
+.box-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.box-card-head strong {
+  font-size: 15px;
+}
+
+.box-card-meta {
+  display: flex;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.weight-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--muted);
+}
+
+.weight-line.over {
+  color: var(--red);
+}
+
+.weight-bar {
+  flex: 1;
+  height: 7px;
+  border-radius: 999px;
+  background: rgba(31, 36, 40, 0.12);
+  overflow: hidden;
+}
+
+.weight-bar i {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--cyan);
+}
+
+.weight-line.over .weight-bar i {
+  background: var(--red);
+}
+
+.box-card-flags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+/* ---------- 徽章 ---------- */
+
+.badge {
+  border-radius: 999px;
+  padding: 4px 9px;
+  font-size: 11px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.badge-open {
+  background: rgba(212, 155, 53, 0.16);
+  color: #9a6d1c;
+}
+
+.badge-sealed {
+  background: rgba(77, 118, 86, 0.16);
+  color: var(--green);
+}
+
+.badge-returned {
+  background: rgba(181, 77, 72, 0.14);
+  color: var(--red);
+}
+
+.mini-badge {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 3px 8px;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.mini-badge.ok {
+  background: rgba(77, 118, 86, 0.14);
+  color: var(--green);
+}
+
+.mini-badge.bad {
+  background: rgba(181, 77, 72, 0.13);
+  color: var(--red);
+}
+
+.mini-badge.warn {
+  background: rgba(212, 155, 53, 0.17);
+  color: #9a6d1c;
+}
+
+.tag.location {
+  background: rgba(109, 99, 120, 0.14);
+  color: var(--muted);
+}
+
+/* ---------- 当前箱详情 ---------- */
+
+.box-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.box-fields label:last-child {
+  grid-column: 1 / -1;
+}
+
+.box-items {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.box-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 6px;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fffdf7;
+  padding: 7px 9px;
+}
+
+.box-item.locked {
+  background: rgba(77, 118, 86, 0.05);
+}
+
+.box-item-code {
+  font-weight: 800;
+  font-size: 13px;
+}
+
+.box-item-tags {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-content: flex-end;
+}
+
+.box-item .icon-btn {
+  grid-column: 1 / -1;
+  justify-self: end;
+}
+
+.locked-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.locked-head strong {
+  font-size: 16px;
+}
+
+.verdict {
+  border-radius: 8px;
+  padding: 9px 11px;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.verdict.ok {
+  border: 1px solid rgba(77, 118, 86, 0.35);
+  background: rgba(77, 118, 86, 0.1);
+  color: var(--green);
+}
+
+.verdict.bad {
+  border: 1px solid rgba(181, 77, 72, 0.35);
+  background: rgba(181, 77, 72, 0.08);
+  color: var(--red);
+}
+
+.soft-hint {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 0 0 8px;
+}
+
+.detail-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ---------- 片段池紧凑卡 ---------- */
+
+.segment-card.compact {
+  grid-template-columns: 84px 1fr auto;
+  cursor: default;
+}
+
+.segment-card.compact .thumb {
+  aspect-ratio: 1;
+}
+
+.segment-card.compact .segment-actions {
+  align-content: center;
+}
+
+.segment-card.compact .segment-actions button {
+  width: auto;
+  height: auto;
+  padding: 8px 10px;
+  white-space: nowrap;
+}
+
+/* ---------- 收货登记 ---------- */
+
+.receipt {
+  border-top: 1px dashed var(--line);
+  padding-top: 10px;
+}
+
+.receipt-rows {
+  display: grid;
+  gap: 7px;
+  margin: 8px 0 10px;
+}
+
+.receipt-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fffdf7;
+  padding: 7px 9px;
+  font-size: 13px;
+}
+
+.receipt-row .check {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.receipt-row .check input {
+  width: auto;
+}
+
+.receipt-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.warning-item button.mini {
+  margin-top: 7px;
+}
+
+@media (max-width: 1120px) {
+  .ship-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 660px) {
+  .segment-card.compact {
+    grid-template-columns: 64px 1fr;
+  }
+
+  .segment-card.compact .segment-actions {
+    grid-column: 1 / -1;
+  }
+
+  .receipt-row {
+    grid-template-columns: 1fr;
+  }
+}

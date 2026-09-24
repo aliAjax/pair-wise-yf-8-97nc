@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>胶片装运台</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="shipping.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <nav class="top-nav">
+        <a href="index.html">核对台</a>
+        <a class="active" href="shipping.html">装运台</a>
+      </nav>
+      <header class="hero">
+        <div>
+          <p class="eyebrow">外地影院寄送</p>
+          <h1>胶片装运台</h1>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <span>装箱数（已封/总箱）</span>
+            <strong id="boxCount">0/0</strong>
+          </div>
+          <div>
+            <span>已装片段（漏带）</span>
+            <strong id="packedCount">0</strong>
+          </div>
+          <div>
+            <span>退回待检片段</span>
+            <strong id="returnCount">0</strong>
+          </div>
+        </div>
+      </header>
+
+      <section class="toolbar">
+        <label>
+          胶片卷
+          <input id="reelTitle" type="text" placeholder="例：春日试映A卷" />
+        </label>
+        <label>
+          筛选
+          <select id="statusFilter">
+            <option value="all">全部片段</option>
+            <option value="unpacked">待装片段</option>
+            <option value="packed">已装片段</option>
+            <option value="problem">破损/偏色</option>
+            <option value="returned">退回待检</option>
+          </select>
+        </label>
+        <label>
+          颜色偏移
+          <select id="colorFilter">
+            <option value="all">全部</option>
+            <option value="正常">正常</option>
+            <option value="偏红">偏红</option>
+            <option value="偏青">偏青</option>
+            <option value="偏黄">偏黄</option>
+            <option value="褪色">褪色</option>
+          </select>
+        </label>
+        <label>
+          搜索
+          <input id="searchInput" type="search" placeholder="片段编号或备注" />
+        </label>
+        <button id="exportBtn">导出装箱单</button>
+      </section>
+
+      <p id="globalHint" class="global-hint"></p>
+
+      <section class="layout ship-layout">
+        <aside class="panel">
+          <div class="panel-head">
+            <h2>运输箱</h2>
+            <button id="addBoxBtn" class="mini primary" type="button">＋ 新箱</button>
+          </div>
+          <div id="boxList" class="box-list"></div>
+        </aside>
+
+        <section class="panel list-panel">
+          <div class="panel-head">
+            <h2>片段池</h2>
+            <span>选中左侧运输箱后装入，箱内保持原顺序</span>
+          </div>
+          <div id="segmentList" class="segment-list compact"></div>
+        </section>
+
+        <aside class="side-stack">
+          <section class="panel">
+            <h2>当前箱判定</h2>
+            <div id="boxDetail" class="box-detail"></div>
+          </section>
+          <section class="panel warning-panel">
+            <h2>收货后待检</h2>
+            <div id="returnList" class="warning-list"></div>
+          </section>
+        </aside>
+      </section>
+    </main>
+
+    <script src="store.js"></script>
+    <script src="shipping.js"></script>
+  </body>
+</html>
